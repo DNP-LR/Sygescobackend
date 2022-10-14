@@ -4,6 +4,7 @@ import com.example.sygesco.domain.AppUser;
 import com.example.sygesco.domain.Candidate;
 import com.example.sygesco.service.CandidateService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,5 +27,10 @@ public class CandidateResource {
     public ResponseEntity<Candidate> addUser(@RequestBody Candidate user) {
         URI uri= URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("candidate/save").toUriString());
         return ResponseEntity.created(uri).body(candidateService.addCandidate(user));
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Candidate> getUserById(@PathVariable("id") Long id){
+        Candidate user = candidateService.findCandidateById(id);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
