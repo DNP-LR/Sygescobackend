@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Candidate {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
     private String noms;
     private String prenoms;
