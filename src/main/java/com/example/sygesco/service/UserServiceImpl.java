@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public Role addRole(Role role) {
         log.info("Saving new role {} to the database", role.getName());
-
         return roleRepo.save(role);
     }
 
@@ -43,7 +42,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         log.info("Fetching  All users {}");
         return userRepo.findAll();
     }
-
+    @Override
+    public void deleteAppUserById(Long id) {
+        userRepo.deleteAppUserById(id);
+    }
+    @Override
+    public AppUser findAppUserById(Long id) {
+        return userRepo.findAppUserById(id);
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
       return null;

@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface UserService {
     AppUser addUser(AppUser user);
-
     Role addRole(Role role);
     List<AppUser> getAllUsers();
+    void deleteAppUserById(Long id);
+    AppUser findAppUserById(Long id);
 }
