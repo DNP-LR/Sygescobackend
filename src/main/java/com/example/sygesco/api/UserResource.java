@@ -42,5 +42,9 @@ public class UserResource {
         userService.deleteAppUserById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @PutMapping("/users/update")
+    public ResponseEntity<AppUser> updateAppUser(@RequestBody AppUser user) {
+        AppUser appUser = userService.updateAppUser(user);
+        return new ResponseEntity<>(appUser,HttpStatus.OK );
+    }
 }

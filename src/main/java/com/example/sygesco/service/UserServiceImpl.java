@@ -51,6 +51,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepo.findAppUserById(id);
     }
     @Override
+    public AppUser updateAppUser(AppUser user) {
+        return userRepo.save(user);
+    }
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
       return null;
     }
