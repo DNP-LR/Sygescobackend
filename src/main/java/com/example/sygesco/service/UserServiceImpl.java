@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -28,6 +30,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public AppUser addUser(AppUser user) {
         log.info("Saving new user {} to the database", user.getUserName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        log.info("kjhkjljhlkjhlkjhkljlj {}", userRepo.save(user).getId());
+
         return userRepo.save(user);
     }
 

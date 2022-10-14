@@ -11,6 +11,5 @@ public interface UserService {
     List<AppUser> getAllUsers();
     void deleteAppUserById(Long id);
     AppUser findAppUserById(Long id);
-
     AppUser updateAppUser(AppUser user);
 }

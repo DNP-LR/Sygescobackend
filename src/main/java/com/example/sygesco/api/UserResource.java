@@ -25,7 +25,6 @@ public class UserResource {
     public ResponseEntity<List<AppUser>>getAllUsers() {
         return ResponseEntity.ok().body(userService.getAllUsers());
     }
-
     @PostMapping("/users/save")
     public ResponseEntity<AppUser> addUser(@RequestBody AppUser user) {
         URI uri= URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/users/save").toUriString());
@@ -36,7 +35,6 @@ public class UserResource {
         AppUser user = userService.findAppUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
     @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteAppUserById(@PathVariable("id") Long id){
         userService.deleteAppUserById(id);
