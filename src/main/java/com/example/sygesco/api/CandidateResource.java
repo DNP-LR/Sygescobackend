@@ -21,9 +21,9 @@ public class CandidateResource {
         return ResponseEntity.ok().body(candidateService.getAllCandidates());
     }
     @PostMapping("/save")
-    public ResponseEntity<Candidate> addUser(@RequestBody Candidate user) {
+    public ResponseEntity<Candidate> addCandidate(@RequestBody Candidate candidate) {
         URI uri= URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("candidate/save").toUriString());
-        return ResponseEntity.created(uri).body(candidateService.addCandidate(user));
+        return ResponseEntity.created(uri).body(candidateService.addCandidate(candidate));
     }
     @GetMapping("/{id}")
     public ResponseEntity<Candidate> getUserById(@PathVariable("id") Long id){
